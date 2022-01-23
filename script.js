@@ -114,6 +114,16 @@ authentication()
                           localStorage.setItem(loggeduser,JSON.stringify(accountDebit))
                            // localStorage.setItem(loggeduser,JSON.)
                             
+                           //...to print in page
+                           let html_data=`<tr><td>${accountDebit.accountNumber}</td>
+                           <td>${accountDebit.personName}</td>
+                           <td>${accountDebit.accountType}</td>
+                           <td>${accountDebit.balance}</td>
+                           <td>Credit Transaction:${accountDebit.transHistory.creditTrans}; Debit transaction:${accountDebit.transHistory.debitTrans}</td>
+                           </tr>`;
+                           document.querySelector("#result").innerHTML=html_data;
+                           
+
                          
                            let accountCredit=JSON.parse(localStorage.getItem(to_acno))
                            console.log(accountCredit.balance);
@@ -126,6 +136,7 @@ authentication()
                             
                             
                             console.log("transaction completed"); 
+                           
                         }
                     }
                     else{
@@ -135,7 +146,7 @@ authentication()
                 else
                {console.log("invalid session u must login");} 
             }
-       
+      
       
         }
        
